@@ -1,0 +1,114 @@
+//shortcuts for create multiple anchor tag in one shots
+// i.e a.items*5 then tab
+
+//base.html
+<div class="sidebar">
+<a href="#" class="items">Home</a>
+	<a href="#" class="items">View Contact</a>
+	<a href="#" class="items">Add Contact</a>
+	<a href="#" class="items">Your Profile</a>
+	<a href="#" class="items">Settings</a>
+	<a href="#" class="items">Logout</a>
+	
+	<div class="divider"></div>
+	
+	</div>
+	
+	//style.css
+	/* styling the anchor tag */
+	
+	
+	//fit into mobile
+	
+	
+	.sidebar{
+	width: 18%;
+	background: white;
+	height:100%;
+	position:fixed;
+	padding-top:45px;
+}
+
+
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+	
+}
+
+.sidebar a:hover{
+	background:#e2e2e2;
+}
+
+.sidebar .divider{
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+//https://bootsnipp.com/snippets/bxzmb
+//https://cdnjs.com/libraries/font-awesome
+//https://fontawesome.com/start
+
+
+//script.js
+
+const toggleSidebar=()=>{
+  if ($('.sidebar').is(":visible")){
+     //true
+      //if true close it
+	  
+       // Here we have target the sidebar in script if display is none then left side sidebar becomes empty
+	   //then content in middle comes to left side so margin-left becomes zero... 
+	   
+      $(".sidebar").css("display","none");
+      $(".content").css("margin-left","0%");
+  }else {
+      //false
+      //if false show it
+	  
+	  //if it is false then sidebar display should be block then content which is margin-left should be 20% which means
+       //actual position	  
+
+      $(".sidebar").css("display","block");
+      $(".content").css("margin-left","20%");
+  }
+};
+
+==================================================================================================
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+
+
+Above code meaning is it will inherit normal/base layout then add section into it...below section block of same code..
+
+<head>
+	<meta charset="UTF-8" />
+	<title>This is Home Page </title>
+</head>
+<body>
+	
+	<section>
+	<h1>This is Adding Contact Board</h1>
+	</section>
+	
+</body>
+
+After that section will go to the base content of this code =>   <div th:replace="${content}"></div>
+=====================================================================================================
+  
+  For building a contact form we don't have to give id in the form becoz it is auto generated..rest of the
+  contact enteties wil be assured
+  
+  
+  cId name secondName work email phone image description
+  -----------------------------------------------------------------
+  
+  <div class="col-md-10 offset-md-1"></div> // 10 grade it acquired then for left 1 grade and right 1 grade
+  -----------------------------------------------------------------------------------------------------------
+  
+  Form filed should be match in entities filed then data will come from form field to Contact class attribute then stored in Contact class variable..

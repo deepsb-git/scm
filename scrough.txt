@@ -1,0 +1,67 @@
+	@Autowired
+	private UserRepository userRepository;
+	@GetMapping("/test")
+	@ResponseBody
+	public String Test() {
+		User user=new User();
+		user.setName("Deeps B");
+		user.setEmail("deeps@gmail.com");
+		
+		Contact contact=new Contact();
+		user.getContacts().add(contact);
+		userRepository.save(user);
+		return "Working";
+	}
+
+
+<div class="form-group">
+	<label for="name_field">Your Name</label> 
+  <input
+	type="text" 
+	class="form-control" 
+	id="name_field"
+	aria-describedby="emailHelp"
+	placeholder="Enter Here"
+	required //not fill as empty form
+	> 
+	</div>
+
+short-cut- shift+click then alt+ctrl+down key for copy selected in down
+ctrl+shift+t see the imported class to see the implementation
+
+For security implementation we have to provide implementation for userdetails
+
+then provide configuration for spring security configuration where we provide all spring security
+configuration..
+
+@Query("select u from User u where u.email= :email")
+	public User getUserByUserName();
+we have to get dynamically email from so we have to provide @Param with pass email so that we can get dynamincally email...
+
+
+public User getUserByUserName(@Param("email") String email);
+Here like that we have to provide dynamincally value...
+
+private User user;
+	
+	public CustomUserDetails(User user) {
+		super();
+		this.user = user;
+	}
+
+This above code meaning we have to initialize CustomUserDetails becoz when the CustomUserDetails object is created then we have to provide user so that we can
+easily get its attribute means email,pass,role etc...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
