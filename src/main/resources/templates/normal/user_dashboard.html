@@ -26,7 +26,17 @@ th:replace="normal/base::layout(~{::section})">
         Start adding your contact on cloud...
         </h1>
       
-      <a th:href="@{/user/add-contact}"  class="btn btn-primary mt-4 btn-block text-uppercase">Add New ContactS</a>
+      <a th:href="@{/user/add-contact}" 
+       class="btn btn-primary mt-4 btn-block text-uppercase">
+       Add New Contact</a>
+       
+       <hr />
+       <h3 class="my-3">Donate Us</h3>
+       <input id="payment_field" type="text" class="form-control my-2" placeholder="Enter amount here" />
+      
+      <div class="container text-center mt-4">
+      <button onclick="paymentStart()" class="btn btn-success btn-block">Checkout</button>
+      </div>
       
       </div>
       
